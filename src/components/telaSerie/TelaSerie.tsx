@@ -61,24 +61,24 @@ const TelaSerie = () => {
             if (tipo === 'comic') {
                 api.get(`/c/${serie_sep}/${vol}`).then(response => {
                     setEsquerda(response.data);
-                    
+
 
                 });
                 api.get(`/single/${serie_sep}/${vol}/${numero}`).then(response => {
                     setDireita(response.data);
-                    
+
 
                 });
             } else {
                 if (tipo === 'manga') {
                     api.get(`/m/${serie_sep}/${vol}`).then(response => {
                         setEsquerda(response.data);
-                        
+
 
                     });
                     api.get(`/tanko/${serie_sep}/${vol}/${numero_m}`).then(response => {
                         setDireita(response.data);
-                        
+
 
                     });
                 }
@@ -96,19 +96,6 @@ const TelaSerie = () => {
     )
     const rel_date = data_la.toString().substring(0, 10)
 
-    
-
-    
-    
-
-    
-    
-    
-
-    
-    
-
-    
 
     const altVet = async (check: boolean, elem: string) => {
 
@@ -124,10 +111,47 @@ const TelaSerie = () => {
         setNumero(e.currentTarget.id)
     }
 
-    
+
     const altData_M = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault()
         setNumeroM(e.currentTarget.id)
+    }
+
+    const handleStatusName = (name: string) => {
+        if (name == 'FINALIZADA') {
+            return (
+                <>FINISHED</>
+            )
+        }
+        else {
+            if (name == 'EM ANDAMENTO') {
+                return (
+                    <>ONGOING</>
+                )
+            }
+        }
+    }
+
+    const handleJobName = (name: string) => {
+        if (name == 'Roteirista') {
+            return (
+                <>Writer:</>
+            )
+        }
+        else {
+            if (name == 'Desenhista') {
+                return (
+                    <>Penciller:</>
+                )
+            }
+            else {
+                if (name == 'Roteirista/Desenhista') {
+                    return (
+                        <>Writer/Penciller:</>
+                    )
+                }
+            }
+        }
     }
 
 
@@ -138,15 +162,7 @@ const TelaSerie = () => {
 
                     <div className="texto_subtit" style={{ gridColumn: '3/13', gridRow: '2/3', display: 'grid', gridTemplateColumns: 'repeat(10,1fr)', gridTemplateRows: 'auto', marginBottom: '5%' }}>
                         <div style={{ gridRow: '1', fontSize: '32px', gridColumn: '1/5' }}>{nome_serie}</div>
-                        <div style={{ gridRow: '2', gridColumn: '1/4', marginLeft: '5%' }}>Editora: {editora}</div>
-
-                        <div style={{ gridRow: '1', gridColumn: '7' }}>
-                            {/* <input type="submit"
-                                name="add" id="add" value="Adicionar" className="bot-dir-inf" /> */}
-                            {/* <Link to={'/addExemplar'} state={{ addVet: addVet }}>
-                                <Botao type="submit">Adicionar</Botao>
-                            </Link> */}
-                        </div>
+                        <div style={{ gridRow: '2', gridColumn: '1/4', marginLeft: '5%' }}>Publisher: {editora}</div>
                     </div>
 
                     <div className="fundo-div-principal" style={{ overflow: 'auto', gridRow: '3/5', gridColumn: '3/8', marginRight: '20px' }}>
@@ -155,23 +171,21 @@ const TelaSerie = () => {
                         <table style={{ width: '100%', fontSize: '22px', justifySelf: 'center' }}>
                             <tbody>
                                 <tr>
-                                    <th>Nome</th>
-                                    <th>Nº</th>
-                                    <th>Preço</th>
-                                    {/* <th>Adicionar</th> */}
+                                    <th>Title</th>
+                                    <th>Number</th>
+                                    <th>Original Price</th>
                                 </tr>
                             </tbody>
                         </table>
 
                         <table style={{ width: '100%', fontSize: '20px', justifySelf: 'center' }}>
-                            {/* <tbody> */}
+
                             {esquerda.map((item, index) => (
                                 <tbody key={index}>
                                     <tr>
                                         <td>{item.nome}</td>
                                         <td>
-                                            {/* <a style={{color: var(--vermlar_claro)'," href="/serie/{{editora}}/{{linha[0].replace(' ', '_')}}/{{vol}}/{{linha[1]}}"
-                                        style={{text-decoration: none'," > #{{ linha[1]}} </a> */}
+
                                             <Botao_Peq id={item.num} onClick={e => (altData(e))}
                                                 value={`${serie}%Vol_${vol}%${item.num}%${rel_date}`} >{item.num}</Botao_Peq>
 
@@ -180,30 +194,25 @@ const TelaSerie = () => {
                                         <td>
                                             {item.un_mon} {item.preco}
                                         </td>
-                                        {/* <td>
-                                            <td style={{ gridColumn: '12' }} className="form-check">
 
-                                                <Check value={`${serie}%Vol_${vol}%${item.num}%${rel_date}`} onChange={e => altVet(e.target.checked, e.target.value)}
-                                                    id="flexCheckDefault" />
-
-
-                                            </td>
-                                        </td> */}
                                     </tr>
                                 </tbody>
                             ))}
-                            {/* </tbody> */}
                         </table>
 
                     </div>
                     {info_edicao.map((item, index) => (
                         <>
-                            {console.log(item)}
-                            <div style={{ gridColumn: '9' }}>
+                            <div style={{ gridRow: '2', gridColumn: '9' }}>
                                 <Link to={'/addExemplar'} state={{ addVet: addVet }}>
-                                    <Botao type="submit" >Adicionar</Botao>
+                                    <Botao type="submit" >Add</Botao>
                                 </Link>
                             </div>
+
+                            <div style={{ gridRow: '2', gridColumn: '10' }}>
+                                <Botao onClick={() => navigate(-1)}>Go back</Botao>
+                            </div>
+
                             <div className="fundo-div-principal" style={{ gridRow: '3', gridColumn: '8/11', margin: '0 20% 10% 20%' }}>
 
                                 <img src={item.capa} height="350px" width="240px" alt="/static/imgs_png/mk5.png" />
@@ -217,37 +226,32 @@ const TelaSerie = () => {
                                 <table style={{ width: '100%' }}>
                                     <tbody>
                                         <tr>
-                                            <td>Série: {item.nome}</td>
+                                            <td>Series: {item.nome}</td>
                                             <td>VOL: {item.vol}</td>
                                             <td>#{item.num}</td>
                                         </tr>
 
                                         <tr>
                                             <td>{item.mon} {item.preco}</td>
-                                            <td>Data de Publicação: {item.data_lanc.substring(0, 10)} </td>
+                                            <td>Release Date: {item.data_lanc.substring(0, 10)} </td>
                                         </tr>
 
                                         {direita.map(item2 => (
                                             <tr>
-                                                <td>{item2.func}: {item2.c_nome}</td>
+                                                <td>{handleJobName(item2.func)} {item2.c_nome}</td>
                                             </tr>
                                         ))}
 
                                         <tr>
-                                            <td>Estado de Publicação: {item.estado_pub_atual}</td>
+                                            <td>Status: {handleStatusName(item.estado_pub_atual)}</td>
                                         </tr>
                                         <tr>
-                                            Adicionar na coleção <Check value={`${item.nome.replace(/ /g, '_')}%Vol_${item.vol}%${item.num}%${item.data_lanc.substring(0, 10)}`}
+                                            Add to Collection <Check value={`${item.nome.replace(/ /g, '_')}%Vol_${item.vol}%${item.num}%${item.data_lanc.substring(0, 10)}`}
                                                 onChange={e => altVet(e.target.checked, e.target.value)}
                                                 id="flexCheckDefault" />
                                         </tr>
                                     </tbody>
                                 </table>
-
-                                {/* Adicionar na coleção
-                                <input type="checkbox" name="ed_add"
-                                    id="{{prem_dir[0][0].replace(' ', '+')}}_{{vol}}_{{prem_dir[0][1]}}" value="{{prem_dir[0][0].replace(' ', '+')}}_{{vol}}_{{prem_dir[0][1]}}_{{prem_dir[0][5]}}" /> */}
-
 
                             </div>
                         </>
@@ -266,8 +270,8 @@ const TelaSerie = () => {
                     <div style={{ gridRow: '4', gridColumn: '1/13', display: 'grid', gridTemplateColumns: 'repeat(12,1fr)' }}>
                         <div className="texto_subtit" style={{ gridColumn: '3/13', gridRow: '2/3', display: 'grid', gridTemplateColumns: 'repeat(10,1fr)', gridTemplateRows: 'auto', marginBottom: '6%' }}>
                             <div style={{ gridRow: '1', fontSize: '32px', gridColumn: '1/5' }}>{nome_serie}</div>
-                            <div style={{ gridRow: '2', gridColumn: '1/4', marginLeft: '5%' }}>Nome Original: {nome_jap} Demografia: {demografia}</div>
-                            <div style={{ gridRow: '2', gridColumn: '4/7' }}> Editora: {editora}</div>
+                            <div style={{ gridRow: '2', gridColumn: '1/4', marginLeft: '5%' }}>Original Name: {nome_jap} Demography: {demografia}</div>
+                            <div style={{ gridRow: '2', gridColumn: '4/7' }}>Publisher: {editora}</div>
 
                             <div style={{ gridRow: '1', gridColumn: '7' }}>\
                             </div>
@@ -278,9 +282,9 @@ const TelaSerie = () => {
                             <table style={{ width: '100%', fontSize: '22px', justifySelf: 'center' }}>
                                 <tbody>
                                     <tr>
-                                        <th>Nome</th>
+                                        <th>Title</th>
                                         <th>Nº</th>
-                                        <th>Preço</th>
+                                        <th>Original Price</th>
                                     </tr>
                                 </tbody>
                             </table>
@@ -291,9 +295,10 @@ const TelaSerie = () => {
                                         <tr>
                                             <td>{item.nome}</td>
                                             <td>
-                                             
+
                                                 <Botao_Peq id={item.num} onClick={e => (altData_M(e))}
-                                                    value={`${serie}%Vol_${vol}%${item.num}%${rel_date}`} >{item.num}</Botao_Peq>
+                                                    value={`${serie}%Vol_${vol}%${item.num}%${rel_date}`} >{item.num}
+                                                </Botao_Peq>
 
 
                                             </td>
@@ -311,9 +316,14 @@ const TelaSerie = () => {
                             <>
                                 <div style={{ gridColumn: '9', gridRow: '2' }}>
                                     <Link to={'/addExemplar'} state={{ addVet: addVet }}>
-                                        <Botao type="submit" >Adicionar</Botao>
+                                        <Botao type="submit" >Add</Botao>
                                     </Link>
                                 </div>
+
+                                <div style={{ gridRow: '2', gridColumn: '10' }}>
+                                    <Botao onClick={() => navigate(-1)}>Go back</Botao>
+                                </div>
+
                                 <div className="fundo-div-principal" style={{ gridRow: '3', gridColumn: '8/11', margin: '0 20% 10% 20%' }}>
 
                                     <img src={item.capa} height="350px" width="240px" alt="/static/imgs_png/mk5.png" />
@@ -327,14 +337,14 @@ const TelaSerie = () => {
                                     <table style={{ width: '100%' }}>
                                         <tbody>
                                             <tr>
-                                                <td>Série: {item.nome}</td>
+                                                <td>Series: {item.nome}</td>
                                                 <td># {item.num}</td>
-                                                <td>Quant. de Capítulos: {item.caps}</td>
+                                                <td>Number of Chapters: {item.caps}</td>
                                             </tr>
 
                                             <tr>
                                                 <td>{item.mon} {item.preco}</td>
-                                                <td>Data de Publicação: {rel_date}</td>
+                                                <td>Release Date: {rel_date}</td>
                                             </tr>
 
                                             {direita.map(item2 => (
@@ -344,24 +354,19 @@ const TelaSerie = () => {
                                             ))}
 
                                             <tr>
-                                                <td>Estado de Publicação: {item.estado_pub_atual}</td>
+                                                <td>Status: {handleStatusName(item.estado_pub_atual)}</td>
                                             </tr>
                                             <tr>
-                                                Adicionar na coleção <Check value={`${item.nome.replace(/ /g, '_')}%Vol_${vol}%${item.num}%${item.data_lanc.substring(0, 10)}`}
+                                                Add to Collection <Check value={`${item.nome.replace(/ /g, '_')}%Vol_${vol}%${item.num}%${item.data_lanc.substring(0, 10)}`}
                                                     onChange={e => altVet(e.target.checked, e.target.value)}
                                                     id="flexCheckDefault" />
 
-                                                    <>
+                                                <>
                                                     {console.log(addVet)}
-                                                    </>
+                                                </>
                                             </tr>
                                         </tbody>
                                     </table>
-
-                                    {/* Adicionar na coleção
-                                    <input type="checkbox" name="ed_add"
-                                        id="{{prem_dir[0][0].replace(' ', '+')}}_{{vol}}_{{prem_dir[0][1]}}" value="{{prem_dir[0][0].replace(' ', '+')}}_{{vol}}_{{prem_dir[0][1]}}_{{prem_dir[0][5]}}" /> */}
-
 
                                 </div>
                             </>
@@ -379,7 +384,7 @@ const TelaSerie = () => {
     return (
         <>
             <div className="fundo-div-principal" style={{ gridRow: '3' }}>
-                Erro ao carregar
+                Error
             </div>
         </>
     )

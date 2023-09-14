@@ -105,7 +105,7 @@ const TelaColecao = () => {
 
             return (
                 <>
-                    Edições faltantes <a style={{ color: 'var(--vermlar_claro)' }}>{falt.num}</a>
+                    Missing books <a style={{ color: 'var(--vermlar_claro)' }}>{falt.num}</a>
                 </>
             )
         } else {
@@ -133,11 +133,11 @@ const TelaColecao = () => {
                         <table style={{ width: '100%', justifySelf: 'center' }}>
 
                             <tr className=" text-align: center;">
-                                <th>Série</th>
-                                <th>Nº</th>
-                                <th>Comprado em</th>
-                                <th>Conservação</th>
-                                <th>Deletar</th>
+                                <th>Series</th>
+                                <th>#</th>
+                                <th>Acquired</th>
+                                <th>Grade</th>
+                                <th>Remove</th>
                             </tr>
                             {exempSerie.map(exemplar => (
                                 <>
@@ -180,7 +180,7 @@ const TelaColecao = () => {
         <div className="App">
 
             <p className="texto_subtit">
-                COLEÇÃO {nomeColecao}
+                COLLECTION {nomeColecao}
 
             </p>
 
@@ -196,11 +196,11 @@ const TelaColecao = () => {
                                         <tr>
                                             <td><a style={{ color: 'var(--vermlar_claro)' }}>{item.nome} </a></td>
                                             <td>VOL <a style={{ color: 'var(--vermlar_claro)' }}>{item.vol}</a></td>
-                                            <td>Edições possuídas <a style={{ color: 'var(--vermlar_claro)' }}>{item.num}</a></td>
+                                            <td>Owned books <a style={{ color: 'var(--vermlar_claro)' }}>{item.num}</a></td>
                                             <td>
                                                 <>{handleEdFalt(item)}</>
                                             </td>
-                                            <td><Botao_Peq onClick={e => handleSerieVol(e, item.nome, item.vol)}>Exibir info.</Botao_Peq></td>
+                                            <td><Botao_Peq onClick={e => handleSerieVol(e, item.nome, item.vol)}>Show info.</Botao_Peq></td>
                                         </tr>
                                     </>
                                 ))}
@@ -219,13 +219,13 @@ const TelaColecao = () => {
 
             <form onSubmit={e => handleDeleteExemp(e)} style={{ gridColumn: '9', gridRow: '2' }}>
                <Botao  type='submit'>
-                    REMOVER
+                    Remove
                 </Botao>
             </form>
 
             
             <div style={{ gridRowStart: '2', gridColumn: '10' }}>
-                <Botao onClick={() => navigate(-1)}>Voltar</Botao>
+                <Botao onClick={() => navigate(-1)}>Go back</Botao>
             </div>
         </ div>
     )

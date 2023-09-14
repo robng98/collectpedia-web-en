@@ -94,7 +94,7 @@ const AddExemplar = () => {
         <div className="App">
 
             <p className="texto_subtit">
-                ADICIONAR EXEMPLAR
+                ADD TO COLLECTION
             </p>
            
             <div className="fundo-div-principal" style={{ gridRow: ' 3' }}>
@@ -144,7 +144,7 @@ const AddExemplar = () => {
 
                             </select>
                             <select name="opc-col" className="caixa-tp-busca" onChange={e => setColEscolhida(e.target.value)} style={{ fontSize: '16px' }} required>
-                                <option value='' selected disabled>Coleções</option>
+                                <option value='' selected disabled>Collections</option>
                                 {colecoes.map(colecao => (
                                     <>
                                         <option value={colecao.nome_c}>{colecao.nome_c}</option>
@@ -164,7 +164,7 @@ const AddExemplar = () => {
             <form onSubmit={handleAdiciona} style={{ gridRow: '4', gridColumn: '9/11' }}>
 
                 <Botao type="submit">
-                    Adicionar na Coleção
+                    Add
                 </Botao>
             </form>
 
@@ -172,7 +172,7 @@ const AddExemplar = () => {
 
             
             <div style={{ gridRow: '4', gridColumn: '8/9' }}>
-                <Botao onClick={() => navigate(-1)}>Voltar</Botao>
+                <Botao onClick={() => navigate(-1)}>Go back</Botao>
             </div>
             
 

@@ -51,7 +51,7 @@ const Login = () => {
     return (
         <div className="App">
             <p className="texto_subtit">
-                LOGAR NA CONTA
+                LOGIN PAGE
             </p>
             
 
@@ -60,16 +60,16 @@ const Login = () => {
 
                     <p> <input type="email" placeholder="Email" name="email" className="texto_busca"
                         required style={{ width: '40%' }} onChange={e => setEmail(e.target.value)} /></p>
-                    <p><input type="password" placeholder="Senha" name="senha" className="texto_busca"
+                    <p><input type="password" placeholder="Password" name="senha" className="texto_busca"
                         required style={{ width: '40%' }} onChange={e => setSenha(e.target.value)} /></p>
 
                     <div style={{ marginTop: '10%', gridColumn: '4', textAlign: 'start' }}>
-                        Não possui uma conta? Então, clique <a href="/signup" style={{ color: 'var(--vermlar_escuro)' }}>aqui</a> para fazer o cadastro.
+                        Not registered yet? Click <a href="/signup" style={{ color: 'var(--vermlar_escuro)' }}>here</a> to do it.
                     </div>
 
                 </div>
                 <form onSubmit={handleLoginUser} style={{gridColumn: '8/10', gridRow: '4'}}>
-                    <input type="submit" name="acao" value="Entrar" className="bot-buscar-home"/>
+                    <input type="submit" name="acao" value="Login" className="bot-buscar-home"/>
                 </form>
             </div>
         

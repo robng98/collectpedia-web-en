@@ -66,7 +66,7 @@ const SignUp = () => {
         <div className="App">
 
             <p className="texto_subtit">
-                CRIAR USUÁRIO
+                CREATE ACCOUNT
             </p>
             
 
@@ -74,7 +74,7 @@ const SignUp = () => {
 
 
 
-                <p> <input type="text" placeholder="Nome" name="userName" className="texto_busca"
+                <p> <input type="text" placeholder="Name" name="userName" className="texto_busca"
                     required style={{ width: '40%' }} onChange={e => setUser(e.target.value)} /></p>
                 
 
@@ -82,23 +82,23 @@ const SignUp = () => {
                     required style={{ width: '40%' }} onChange={e => setEmail(e.target.value)} /></p>
                 
 
-                <p><input type="password" placeholder="Senha" name="senha" className="texto_busca"
+                <p><input type="password" placeholder="Password" name="senha" className="texto_busca"
                     required style={{ width: '40%' }} onChange={e => setSenha(e.target.value)} /></p>
                 
 
 
-                <p><input type="password" placeholder="Confirmar Senha" name="Confsenha" className="texto_busca"
+                <p><input type="password" placeholder="Confirm Password" name="Confsenha" className="texto_busca"
                     required style={{ width: '40%' }} onChange={e => setConfSenha(e.target.value)} /></p>
                 
 
                 <div style={{ marginTop: '10%', gridColumn: '4', textAlign: 'start' }}>
-                    Já possui uma conta? Então, clique <a href="/login" style={{ color: 'var(--vermlar_escuro)' }}>aqui</a> para fazer seu login.
+                    Already have an account? Click <a href="/login" style={{ color: 'var(--vermlar_escuro)' }}>here</a> to login.
                 </div>
 
             </div>
             
             <form onSubmit={handleSignUp} style={{ gridColumn: '8/10', gridRow: '4' }}>
-                <input type="submit" name="acao" value="cadastrar" className="bot-buscar-home" />
+                <input type="submit" name="acao" value="Create" className="bot-buscar-home" />
             </form>
         </div>
         

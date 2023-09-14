@@ -148,26 +148,26 @@ const TelaAdmColecoes = () => {
                     <div className="editar_colecao" id="editar_colecao" style={{ display: 'grid', gridRow: '6', gridTemplateColumns: 'repeat(12,1fr)', gridTemplateRows: 'repeat(3,1fr)', paddingLeft: ' 20px', marginTop: '5%' }}>
 
                         <section style={{ gridRow: '1', gridColumn: '1/5', textAlign: 'left', fontSize: '30px' }}>
-                            Editar/Remover
+                            Edit/Remove
                         </section>
 
 
                         <section style={{ gridRow: '2', gridColumn: ' 1/7' }}>
                             <input type="text" name="editar_nome_colecao" onChange={e => setNomeNew(e.target.value)}
-                                placeholder="Nome da coleção" value={nomeNew} className="texto_busca" required />
+                                placeholder="Collection name" value={nomeNew} className="texto_busca" required />
 
                         </section>
 
                         <form onSubmit={handleAtualizaNome} style={{ gridRow: '3', gridColumn: '9/13' }}>
                             <section >
-                                <input type="submit" name="add_colecao_nova" value="Renomear"
+                                <input type="submit" name="add_colecao_nova" value="Rename"
                                     className="bot-buscar-home" />
                             </section >
                         </form>
 
                         <form onSubmit={handleDeletaCol} style={{ gridRow: '3', gridColumn: '5/8' }}>
                             <section >
-                                <input type="submit" name="add_colecao_nova" value="Remover"
+                                <input type="submit" name="add_colecao_nova" value="Remove"
                                     className="bot-buscar-home" />
                             </section>
                         </form>
@@ -196,20 +196,20 @@ const TelaAdmColecoes = () => {
 
 
                         <section style={{ gridRow: '1', gridColumn: '1/5', textAlign: 'left', fontSize: ' 30px' }}>
-                            Criar nova coleção
+                            Create Collection
                         </section>
 
 
 
                         <section style={{ gridRow: '2', gridColumn: '1/8' }}>
                             <input type="text" name="editar_nome_colecao" onChange={e => setNomeNew(e.target.value)}
-                                placeholder="Nome da coleção" value={nomeNew} className="texto_busca" />
+                                placeholder="Collection name" value={nomeNew} className="texto_busca" />
 
                         </section>
                         <form onSubmit={handleCreateCol} style={{ gridRow: '3', gridColumn: '9/13' }}>
 
                             <section>
-                                <input type="submit" name="add_colecao_nova" value="Adicionar"
+                                <input type="submit" name="add_colecao_nova" value="Create"
                                     className="bot-buscar-home" />
                             </section>
                         </form>
@@ -232,11 +232,11 @@ const TelaAdmColecoes = () => {
         <div className="App">
 
             <div className="texto_subtit" style={{ gridColumn: '3/5', gridRow: '1' }}>
-                <section >Adm. Coleções </section>
+                <section >Manage Collections</section>
             </div>
 
             <div style={{ gridRow: '5', gridColumn: '3/6' }}>
-                <Botao value={1} onClick={e => setFlagCriar(parseInt(e.currentTarget.value))} style={{ fontSize: ' 22px' }}>Criar Coleção</Botao>
+                <Botao value={1} onClick={e => setFlagCriar(parseInt(e.currentTarget.value))} style={{ fontSize: ' 22px' }}>Create Collection</Botao>
             </div>
             <div className="fundo-div-principal">
                 <div style={{ display: 'flex', justifyContent: 'space-evenly', padding: '15px 0 25px 0' }}>
@@ -248,14 +248,14 @@ const TelaAdmColecoes = () => {
                                 <tr className="border-bottom border-danger">
                                     <td>{colecao.nome_c}</td>
                                     <td>
-                                        Quantidade de exemplares <a style={{ color: 'var(--vermlar_claro)' }}>{parseInt(colecao.count) | 0}</a>
+                                        Number of Books <a style={{ color: 'var(--vermlar_claro)' }}>{parseInt(colecao.count) | 0}</a>
                                     </td>
                                     <td></td>
                                     <div className="d-flex justify-content-between">
 
                                         <div>
                                             <label className="form-check-label" htmlFor="radioId">
-                                                Renomear/Excluir
+                                                Rename/Remove
                                             </label>
                                         </div>
                                         <div>
@@ -281,7 +281,7 @@ const TelaAdmColecoes = () => {
             </>
 
             <div style={{ gridRowStart: '5', gridColumn: '9' }}>
-                <Botao onClick={() => navigate(-1)}>Voltar</Botao>
+                <Botao onClick={() => navigate(-1)}>Go back</Botao>
             </div>
 
         </ div>

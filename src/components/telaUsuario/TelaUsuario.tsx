@@ -123,6 +123,21 @@ const TelaUsuario = (props: TelaUserProps) => {
 
     }
 
+    const handleStatusName = (name: string) => {
+        if (name == 'FINALIZADA') {
+            return (
+                <>FINISHED</>
+            )
+        }
+        else {
+            if (name == 'EM ANDAMENTO') {
+                return (
+                    <>ONGOING</>
+                )
+            }
+        }
+    }
+
     const handleStatusPub = (item: CountInfosDir_Model[] | undefined) => {
 
 
@@ -138,14 +153,14 @@ const TelaUsuario = (props: TelaUserProps) => {
                         </div>
                         <div className="tx-u-c" style={{ textAlign: 'start' }}>
 
-                            <br /> Status de Publicação das séries <br />
+                            <br /> Status <br />
                         </div>
                         <p>
                             <div style={{ marginLeft: '8%' }}>
                                 <div style={{ textAlign: 'end', marginRight: '20%', fontSize: '15px' }}>
                                     {item.map((elem) => (
                                         <>
-                                            {elem.e_p} < a style={{ color: 'var(--vermlar_claro)' }}>{elem.contagem}</a> <br />
+                                            {handleStatusName(elem.e_p)} < a style={{ color: 'var(--vermlar_claro)' }}>{elem.contagem}</a> <br />
                                         </>
                                     ))}
 
@@ -175,7 +190,7 @@ const TelaUsuario = (props: TelaUserProps) => {
                             <div className="tx-u-c">
 
 
-                                Top Gêneros Presentes<br />
+                                Top Genres<br />
                             </div>
                             <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
                                 {nome_gen.map((elem) => (
@@ -191,7 +206,7 @@ const TelaUsuario = (props: TelaUserProps) => {
 
                                     <div className="tx-u-c">
 
-                                        Demografia principal<br />
+                                        Most Popular Demography<br />
                                     </div>
                                     {nome_demo.map((elem) => (
 
@@ -212,7 +227,7 @@ const TelaUsuario = (props: TelaUserProps) => {
                         <div className="tx-u-c">
 
 
-                            Top Gêneros Presentes<br />
+                            Top Genres<br />
                         </div>
                         <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
                             {nome_gen.map((elem) => (
@@ -241,7 +256,7 @@ const TelaUsuario = (props: TelaUserProps) => {
 
 
                         <div className="tx-u-c">
-                            <br /> Top Roteirista em títulos<br />
+                            <br /> Top Writer<br />
                         </div>
                         <div className="tx-u-v">
                             {nome_r.map((elem) => (
@@ -252,7 +267,7 @@ const TelaUsuario = (props: TelaUserProps) => {
 
                         </div>
                         <div className="tx-u-c">
-                            <br /> Top Mangaka em títulos<br />
+                            <br /> Top Mangaka<br />
                         </div>
 
                         <div className="tx-u-v">
@@ -271,7 +286,7 @@ const TelaUsuario = (props: TelaUserProps) => {
 
 
                     <div className="tx-u-c">
-                        <br /> Top Roteirista em títulos<br />
+                        <br /> Top Writer<br />
                     </div>
                     <div className="tx-u-v">
                         {nome_r.map((elem) => (
@@ -296,7 +311,7 @@ const TelaUsuario = (props: TelaUserProps) => {
 
 
                         <div className="tx-u-c">
-                            <br /> Top Desenhista em títulos<br />
+                            <br /> Top Artist<br />
                         </div>
                         <div className="tx-u-v">
                             {nome_r.map((elem) => (
@@ -307,7 +322,7 @@ const TelaUsuario = (props: TelaUserProps) => {
 
                         </div>
                         <div className="tx-u-c">
-                            <br /> Top Mangaka em títulos<br />
+                            <br /> Top Mangaka<br />
                         </div>
 
                         <div className="tx-u-v">
@@ -326,7 +341,7 @@ const TelaUsuario = (props: TelaUserProps) => {
 
 
                     <div className="tx-u-c">
-                        <br /> Top Desenhista em títulos<br />
+                        <br /> Top Artist<br />
                     </div>
                     <div className="tx-u-v">
                         {nome_r.map((elem) => (
@@ -353,7 +368,7 @@ const TelaUsuario = (props: TelaUserProps) => {
 
 
                         <div className="tx-u-c">
-                            <br /> Top Roteirista em títulos<br />
+                            <br /> Top Writer<br />
                         </div>
                         <div className="tx-u-v">
                             {nome_r.map((elem) => (
@@ -365,7 +380,7 @@ const TelaUsuario = (props: TelaUserProps) => {
                         </div>
 
                         <div className="tx-u-c">
-                            <br /> Top Desenhista em títulos<br />
+                            <br /> Top Artist<br />
                         </div>
                         <div className="tx-u-v">
                             {nome_d.map((elem) => (
@@ -375,7 +390,7 @@ const TelaUsuario = (props: TelaUserProps) => {
                             ))}
                         </div>
                         <div className="tx-u-c">
-                            <br /> Top Mangaka em títulos<br />
+                            <br /> Top Mangaka<br />
                         </div>
 
                         <div className="tx-u-v">
@@ -394,7 +409,7 @@ const TelaUsuario = (props: TelaUserProps) => {
 
 
                     <div className="tx-u-c">
-                        <br /> Top Roteirista em títulos<br />
+                        <br /> Top Writer<br />
                     </div>
                     <div className="tx-u-v">
                         {nome_r.map((elem) => (
@@ -406,7 +421,7 @@ const TelaUsuario = (props: TelaUserProps) => {
                     </div>
 
                     <div className="tx-u-c">
-                        <br /> Top Desenhista em títulos<br />
+                        <br /> Top Artist<br />
                     </div>
                     <div className="tx-u-v">
                         {nome_d.map((elem) => (
@@ -425,7 +440,7 @@ const TelaUsuario = (props: TelaUserProps) => {
                     <div style={{ gridColumn: '6/12', gridRow: '2' }}>
 
                         <div className="tx-u-c">
-                            <br /> Top Mangaka em títulos<br />
+                            <br /> Top Mangaka<br />
                         </div>
 
                         <div className="tx-u-v">
@@ -456,13 +471,13 @@ const TelaUsuario = (props: TelaUserProps) => {
                 <div style={{ gridColumn: '1/6' }}>
 
                     <div className="tx-u-c" style={{ textAlign: 'start' }}>
-                        Quantidade total de exemplares <br />
+                        Total Number of Books <br />
                     </div>
                     <div className="tx-u-v">
                         <a style={{ color: 'var(--vermlar_claro) ' }}>{item.num_ex_col}</a> <br />
                     </div>
                     <div className="tx-u-c" style={{ textAlign: 'start' }}>
-                        <br /> Quantidade de editoras diferentes <br />
+                        <br /> Number of Publishers <br />
                     </div>
                     <div className="tx-u-v">
                         <a style={{ color: 'var(--vermlar_claro)' }}>{item.num_ed_col}</a><br />
@@ -495,7 +510,7 @@ const TelaUsuario = (props: TelaUserProps) => {
                 <section >
                     {nomeDisplay.map(nome => (
                         <>
-                            {nome.username.toUpperCase()} Tela do usuário
+                            {nome.username.toUpperCase()}'s User page
                         </>
                     ))}
                 </section>
@@ -519,8 +534,8 @@ const TelaUsuario = (props: TelaUserProps) => {
 
                             <table style={{ width: '100%', fontSize: '18px' }}>
                                 <tr>
-                                    <td>Quantidade de exemplares <a style={{ color: 'var(--vermlar_claro)' }}>{item.count}</a></td>
-                                    <td>Última aquisição feita em <a style={{ color: 'var(--vermlar_claro)' }}>{item.max.substring(0, 10)}</a></td>
+                                    <td>Number of books <a style={{ color: 'var(--vermlar_claro)' }}>{item.count}</a></td>
+                                    <td>Most recent buy  <a style={{ color: 'var(--vermlar_claro)' }}>{item.max.substring(0, 10)}</a></td>
                                 </tr>
                                 <p></p>
                             </table>
@@ -530,14 +545,14 @@ const TelaUsuario = (props: TelaUserProps) => {
 
                                 <div className="mb-1">
                                     <Botao_Peq onClick={e => setColecao(item.nome_c)}
-                                        style={{ fontSize: '18px' }} >Exibir info.
+                                        style={{ fontSize: '18px' }} >Show info.
                                     </Botao_Peq>
                                 </div>
 
                                 <div>
                                     <Link to={'/colecao'} state={{ nomeColecao: item.nome_c, email: email_ }}
-                                     style={{ gridRow: '4', gridColumn: '11/14' }} >
-                                        <Botao_Peq >Ver Mais</Botao_Peq>
+                                        style={{ gridRow: '4', gridColumn: '11/14' }} >
+                                        <Botao_Peq >Books</Botao_Peq>
                                     </Link>
                                 </div>
                             </div>
@@ -549,7 +564,7 @@ const TelaUsuario = (props: TelaUserProps) => {
                 <div className="mt-5 d-flex justify-content-start">
                     <Link to={'/admColecoes'} state={{ colecoes: colecoes, email: email_ }}>
                         <Botao>
-                            Administrar
+                            Manage
                         </Botao>
                     </Link>
                 </div>

@@ -72,10 +72,10 @@ const App = () => {
 							<option value="manga">Manga</option>
 						</select>
 					</p>
-					<p><input type="text" placeholder="Digite aqui" title="Buscar série" className="texto_busca" name="home-busca" required value={busca} onChange={e => setBusca(e.target.value)} /></p>
+					<p><input type="text" placeholder="Type here" title="Buscar série" className="texto_busca" name="home-busca" required value={busca} onChange={e => setBusca(e.target.value)} /></p>
 
 					<br /><br />
-					<Botao type="submit">Buscar</Botao>
+					<Botao type="submit">Search</Botao>
 
 				</form>
 			</div>
@@ -83,7 +83,7 @@ const App = () => {
 			<div className="fundo-div-principal" style={{ paddingBottom: '4%', marginBottom: '5%', gridRow: '5', paddingTop: '0', display: 'grid', gridTemplateColumns: 'repeat(12,1fr)', gridTemplateRows: '1fr' }}>
 
 				<div style={{ textAlign: 'start', gridRow: '1', gridColumn: '1/6', fontSize: '30px', fontWeight: '700', margin: '5% 0 2% 2%' }}>
-					<p>Lançamentos recentes</p>
+					<p>Recent releases</p>
 				</div>
 
 				<ul style={{ gridRow: '2', gridColumn: '1/13', display: 'flex', justifyContent: 'space-evenly', listStyleType: 'none', padding: '0' }}>

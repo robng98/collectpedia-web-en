@@ -38,7 +38,7 @@ const ResultBusca = () => {
             <div className="App">
 
                 <p className="texto_subtit">
-                    RESULTADOS PARA BUSCA "{busca}"
+                    SEARCH RESULTS FOR "{busca}"
                 </p>
 
                 <div className="fundo-div-principal" style={{ gridRow: '3' }}>
@@ -59,9 +59,9 @@ const ResultBusca = () => {
                                     </tr>
                                     <tr style={{ borderColor: 'var(--vermlar_claro)', borderRightWidth: '10px', backgroundColor: 'var(--cinza_claro)' }}>
                                         <td>VOL: {item.vol}</td>
-                                        <td>Quant. Eds: {item.num_edicoes}</td>
-                                        <td>Ano Pub: {item.ano_pub}</td>
-                                        <td>Editora: {item.editora}</td>
+                                        <td>Number of Issues: {item.num_edicoes}</td>
+                                        <td>Released on: {item.ano_pub}</td>
+                                        <td>Publisher: {item.editora}</td>
                                     </tr>
                                 </>
                             ))}
@@ -72,7 +72,7 @@ const ResultBusca = () => {
                 </div>
 
                 <Link to={'/'} style={{ gridRow: '4', gridColumn: '9/11' }}>
-                    <Botao>Voltar</Botao>
+                    <Botao>Home</Botao>
                 </Link>
 
 
@@ -82,8 +82,8 @@ const ResultBusca = () => {
         if (tipo === "manga") {
             return (
                 <div className="App">
-                    <p className="texto-subtit">
-                        RESULTADOS PARA BUSCA {busca}
+                    <p className="texto_subtit">
+                        SEARCH RESULTS FOR "{busca}"
                     </p>
 
 
@@ -111,14 +111,14 @@ const ResultBusca = () => {
                                         </tr>
                                         <tr style={{ borderColor: 'var(--cinza_claro)', borderBottomWidth: '1px' }}>
 
-                                            <td>Nome Japonês: {item.nome_jap}</td>
-                                            <td>Quant. Tankos: {item.num_tankos}</td>
-                                            <td>Ano Pub: {item.ano_pub}</td>
+                                            <td>Japanese Name: {item.nome_jap}</td>
+                                            <td>Numb. of Tankos: {item.num_tankos}</td>
+                                            <td>Released on: {item.ano_pub}</td>
                                         </tr>
                                         <tr style={{ borderColor: 'var(--cinza_claro)', borderBottomWidth: '1px' }}>
 
-                                            <td>Editora: {item.editora}</td>
-                                            <td>Demografia: {item.demografia}</td>
+                                            <td>Publisher: {item.editora}</td>
+                                            <td>Demography: {item.demografia}</td>
                                             <td>VOL: {item.vol}</td>
 
                                         </tr>
@@ -131,7 +131,7 @@ const ResultBusca = () => {
                     </div>
 
                     <Link to={'/'} style={{ gridRow: '4', gridColumn: '9/11' }}>
-                        <Botao>Voltar</Botao>
+                        <Botao>Home</Botao>
                     </Link>
                 </div>
             )
