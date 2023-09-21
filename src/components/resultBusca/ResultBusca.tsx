@@ -59,7 +59,7 @@ const ResultBusca = () => {
                                     </tr>
                                     <tr style={{ borderColor: 'var(--vermlar_claro)', borderRightWidth: '10px', backgroundColor: 'var(--cinza_claro)' }}>
                                         <td>VOL: {item.vol}</td>
-                                        <td>Number of Issues: {item.num_edicoes}</td>
+                                        <td>Issues: {item.num_edicoes}</td>
                                         <td>Released on: {item.ano_pub}</td>
                                         <td>Publisher: {item.editora}</td>
                                     </tr>
@@ -112,7 +112,7 @@ const ResultBusca = () => {
                                         <tr style={{ borderColor: 'var(--cinza_claro)', borderBottomWidth: '1px' }}>
 
                                             <td>Japanese Name: {item.nome_jap}</td>
-                                            <td>Numb. of Tankos: {item.num_tankos}</td>
+                                            <td>Tankos: {item.num_tankos}</td>
                                             <td>Released on: {item.ano_pub}</td>
                                         </tr>
                                         <tr style={{ borderColor: 'var(--cinza_claro)', borderBottomWidth: '1px' }}>

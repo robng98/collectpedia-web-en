@@ -248,7 +248,7 @@ const TelaAdmColecoes = () => {
                                 <tr className="border-bottom border-danger">
                                     <td>{colecao.nome_c}</td>
                                     <td>
-                                        Number of Books <a style={{ color: 'var(--vermlar_claro)' }}>{parseInt(colecao.count) | 0}</a>
+                                        Books <a style={{ color: 'var(--vermlar_claro)' }}>{parseInt(colecao.count) | 0}</a>
                                     </td>
                                     <td></td>
                                     <div className="d-flex justify-content-between">

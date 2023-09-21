@@ -283,7 +283,7 @@ const TelaSerie = () => {
                                 <tbody>
                                     <tr>
                                         <th>Title</th>
-                                        <th>Nº</th>
+                                        <th>Number</th>
                                         <th>Original Price</th>
                                     </tr>
                                 </tbody>
@@ -339,7 +339,7 @@ const TelaSerie = () => {
                                             <tr>
                                                 <td>Series: {item.nome}</td>
                                                 <td># {item.num}</td>
-                                                <td>Number of Chapters: {item.caps}</td>
+                                                <td>Chapters: {item.caps}</td>
                                             </tr>
 
                                             <tr>

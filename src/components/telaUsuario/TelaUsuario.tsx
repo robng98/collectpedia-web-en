@@ -471,13 +471,13 @@ const TelaUsuario = (props: TelaUserProps) => {
                 <div style={{ gridColumn: '1/6' }}>
 
                     <div className="tx-u-c" style={{ textAlign: 'start' }}>
-                        Total Number of Books <br />
+                        Total of Books <br />
                     </div>
                     <div className="tx-u-v">
                         <a style={{ color: 'var(--vermlar_claro) ' }}>{item.num_ex_col}</a> <br />
                     </div>
                     <div className="tx-u-c" style={{ textAlign: 'start' }}>
-                        <br /> Number of Publishers <br />
+                        <br /> Publishers <br />
                     </div>
                     <div className="tx-u-v">
                         <a style={{ color: 'var(--vermlar_claro)' }}>{item.num_ed_col}</a><br />
@@ -534,7 +534,7 @@ const TelaUsuario = (props: TelaUserProps) => {
 
                             <table style={{ width: '100%', fontSize: '18px' }}>
                                 <tr>
-                                    <td>Number of books <a style={{ color: 'var(--vermlar_claro)' }}>{item.count}</a></td>
+                                    <td>Books <a style={{ color: 'var(--vermlar_claro)' }}>{item.count}</a></td>
                                     <td>Most recent buy  <a style={{ color: 'var(--vermlar_claro)' }}>{item.max.substring(0, 10)}</a></td>
                                 </tr>
                                 <p></p>
